@@ -20,6 +20,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-sonarjs": "^0.23.0",
+    "husky": "^8.0.0",
     "postcss": "^8.4.33",
     "prettier": "^3.2.2",
     "sass": "^1.69.7",
@@ -34,7 +35,8 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare": "husky install"
   },
   "type": "module",
   "version": "0.0.0"
