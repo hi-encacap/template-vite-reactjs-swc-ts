@@ -1,15 +1,20 @@
 import { memo } from "react";
+import { FormattedMessage } from "react-intl";
 
-const App = () => {
-  const a = 1;
+import { Provider } from "@/components/Provider";
 
-  console.log(a);
-
+const UMApp = () => {
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
-      <div className="">Hello from Encacap!</div>
-    </div>
+    <Provider>
+      <div className="flex h-screen w-screen flex-col items-center justify-center">
+        <div>
+          <FormattedMessage id="app.hello_from_name_em" values={{ name: "Encacap" }} />
+        </div>
+      </div>
+    </Provider>
   );
 };
 
-export default memo(App);
+const App = memo(UMApp);
+
+export default App;

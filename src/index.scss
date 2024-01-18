@@ -5,3 +5,11 @@
 html {
   @apply font-noto-sans;
 }
+
+.spinner {
+  @apply z-10 animate-spin duration-200;
+
+  & .path {
+    @apply animate-dash stroke-inherit;
+  }
+}

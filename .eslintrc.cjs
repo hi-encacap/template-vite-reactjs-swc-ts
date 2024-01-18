@@ -8,6 +8,9 @@ module.exports = {
     "airbnb/hooks",
     "plugin:react/jsx-runtime",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:sonarjs/recommended",
     "plugin:prettier/recommended",
   ],
@@ -16,8 +19,20 @@ module.exports = {
   parserOptions: {
     project: "tsconfig.json",
   },
-  plugins: ["react-refresh"],
+  settings: {
+    "import/resolver": {
+      typescript: true,
+    },
+  },
+  plugins: ["react-refresh", "formatjs"],
   rules: {
+    "import/order": [
+      "error",
+      {
+        groups: ["external", "index", "internal", "builtin", "object", "type", "parent", "sibling"],
+        "newlines-between": "always",
+      },
+    ],
     "react/function-component-definition": [
       "error",
       {
@@ -25,5 +40,7 @@ module.exports = {
       },
     ],
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
+    "react/require-default-props": "off",
+    "react/jsx-props-no-spreading": "off",
   },
 };

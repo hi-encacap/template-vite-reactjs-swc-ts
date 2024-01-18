@@ -16,12 +16,22 @@
     /* Linting */
     "strict": true,
     "target": "ES2020",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@features/*": ["src/features/*"],
+      "@services/*": ["src/lib/services/*"],
+      "@hooks/*": ["src/lib/hooks/*"],
+      "@interfaces/*": ["src/lib/interfaces/*"],
+      "@/*": ["src/*"],
+    },
   },
   "include": ["src"],
   "references": [
     {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+      "path": "./tsconfig.node.json",
+    },
+  ],
 }
