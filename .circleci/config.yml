@@ -16,8 +16,8 @@ jobs:
       - run:
           name: "bun-vite-build"
           command: bun run build
-      - store_artifact:
-          path: template-vite-react-swc-ts.txt
+      - store_artifacts:
+          path: /tmp/template-vite-react-swc-ts
 workflows:
   test-and-build:
     jobs:
