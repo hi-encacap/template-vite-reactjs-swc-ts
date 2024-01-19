@@ -1,0 +1,25 @@
+version: 2.1
+job:
+  bun-vite-test:
+    docker:
+      - image: oven/bun:latest
+    steps:
+      - checkout
+      - run:
+          name: "bun-vite-test"
+          command: bun test
+  bun-vite-build:
+    docker:
+      - image: oven/bun:latest
+    steps:
+      - checkout
+      - run:
+          name: "bun-vite-build"
+          command: bun build
+workflows:
+  test-and-build:
+    jobs:
+      - bun-vite-test
+      - bun-vite-build:
+          requires:
+            - bun-vite-test
