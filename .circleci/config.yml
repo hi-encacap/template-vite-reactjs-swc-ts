@@ -1,8 +1,6 @@
 version: 2.1
-
 orbs:
   node: circleci/node@5.2.0
-
 jobs:
   bun-vite-test:
     docker:
@@ -20,8 +18,8 @@ jobs:
       - run: bun add typescript
       - run: bun run build
       - store_artifacts:
-          path: /tmp/template-vite-react-swc-ts
-
+          path: dist
+          destination: /tmp/template-vite-react-swc-ts
 workflows:
   test-and-build:
     jobs:
