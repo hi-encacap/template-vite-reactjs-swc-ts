@@ -1,5 +1,5 @@
 version: 2.1
-job:
+jobs:
   bun-vite-test:
     docker:
       - image: oven/bun:latest
