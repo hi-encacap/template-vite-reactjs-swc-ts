@@ -10,22 +10,15 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Vitest on bunjs"
+          name: "bun-vite-test"
           command: bun test
   bun-vite-build:
     docker:
       - image: oven/bun:latest
-      - image: cimg/base:stable
     steps:
       - checkout
-      - node/install:
-          node-version: "20"
-      - run:
-          name: "node-npm-add-typescript"
-          command: npm install -g typescript
-      - run:
-          name: "bun-vite-build"
-          command: bun run build
+      - run: bun add typescript
+      - run: bun run build
       - store_artifacts:
           path: /tmp/template-vite-react-swc-ts
 
