@@ -14,11 +14,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "bun-add-typescript"
-          command: bun add -g typescript
-      - run:
           name: "bun-vite-build"
-          command: bun run build
+          command: bun add -g typescript && bun run build
       - store_artifacts:
           path: /tmp/template-vite-react-swc-ts
 workflows:
