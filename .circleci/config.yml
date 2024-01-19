@@ -1,4 +1,8 @@
 version: 2.1
+
+orbs:
+  node: circleci/node@5.2.0
+
 jobs:
   bun-vite-test:
     docker:
@@ -6,18 +10,24 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "bun-vite-test"
+          name: "Vitest on bunjs"
           command: bun test
   bun-vite-build:
     docker:
       - image: oven/bun:latest
     steps:
       - checkout
+      - node/install:
+          node-version: "20"
+      - run:
+        name: "node-npm-add-typescript"
+        command: npm install -g typescript
       - run:
           name: "bun-vite-build"
-          command: bun add -g typescript && bun run build
+          command: bun run build
       - store_artifacts:
           path: /tmp/template-vite-react-swc-ts
+
 workflows:
   test-and-build:
     jobs:
