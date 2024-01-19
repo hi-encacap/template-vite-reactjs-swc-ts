@@ -20,8 +20,8 @@ jobs:
       - node/install:
           node-version: "20"
       - run:
-        name: "node-npm-add-typescript"
-        command: npm install -g typescript
+          name: "node-npm-add-typescript"
+          command: npm install -g typescript
       - run:
           name: "bun-vite-build"
           command: bun run build
