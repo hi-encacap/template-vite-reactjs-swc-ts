@@ -2,14 +2,12 @@ version: 2.1
 orbs:
   node: circleci/node@5.2.0
 jobs:
-  bun-vite-test:
+  bun-vitest-test:
     docker:
       - image: oven/bun:latest
     steps:
       - checkout
-      - run:
-          name: "bun-vite-test"
-          command: bun test
+      - run: bun run test
   bun-vite-build:
     docker:
       - image: oven/bun:latest
@@ -23,7 +21,7 @@ jobs:
 workflows:
   test-and-build:
     jobs:
-      - bun-vite-test
+      - bun-vitest-test
       - bun-vite-build:
           requires:
-            - bun-vite-test
+            - bun-vitest-test
