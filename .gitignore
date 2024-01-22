@@ -16,7 +16,6 @@ dist-ssr
 
 # Tests
 test
-__snapshots__
 
 # ENV
 .env.local
