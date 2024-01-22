@@ -10,7 +10,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun install
-      - run: bun run test:coverage
+      - run: bun --node run test:coverage
       - save_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
           paths:
