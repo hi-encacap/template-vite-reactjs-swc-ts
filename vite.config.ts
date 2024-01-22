@@ -11,5 +11,11 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: "./vitest.prepare.ts",
+    include: ["./src/**/*.spec.tsx"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json"],
+      reportsDirectory: "./test/coverage",
+    },
   },
 });
