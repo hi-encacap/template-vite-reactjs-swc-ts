@@ -1,14 +1,16 @@
 version: 2.1
 orbs:
+  bun-orb: cmgriffing/bun-orb@0.0.28
   node: circleci/node@5.2.0
 jobs:
   bun-vitest-test:
     docker:
-      - image: oven/bun
+      - image: cimg/base:stable
     steps:
       - checkout
       - node/install:
           node-version: "21"
+      - bun-orb/setup
       - restore_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun install
