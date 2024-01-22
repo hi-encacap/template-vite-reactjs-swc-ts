@@ -1,13 +1,14 @@
 version: 2.1
 orbs:
-  bun-orb: cmgriffing/bun-orb@0.0.28
+  node: circleci/node@5.2.0
 jobs:
   bun-vitest-test:
     docker:
-      - image: cimg/node:21.6.0
+      - image: oven/bun
     steps:
       - checkout
-      - bun-orb/setup
+      - node/install:
+          node-version: "21"
       - restore_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun install
@@ -21,10 +22,9 @@ jobs:
           destination: /tmp/template-vite-react-swc-ts-test
   bun-vite-build:
     docker:
-      - image: cimg/node:21.6.0
+      - image: oven/bun
     steps:
       - checkout
-      - bun-orb/setup
       - restore_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun run build
