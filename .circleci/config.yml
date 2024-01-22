@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  bun-orb: cmgriffing/bun-orb@0.0.28
+  bun: ksylvest/bun@1.0.1
   node: circleci/node@5.2.0
 jobs:
   bun-vitest-test:
@@ -10,7 +10,7 @@ jobs:
       - checkout
       - node/install:
           node-version: "21"
-      - bun-orb/setup
+      - bun/install
       - restore_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun install
