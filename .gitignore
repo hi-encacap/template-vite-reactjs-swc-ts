@@ -13,6 +13,9 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Tests
+test
 __snapshots__
 
 # ENV
