@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: "21"
+          node-version: 20
       - bun/install
       - restore_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
