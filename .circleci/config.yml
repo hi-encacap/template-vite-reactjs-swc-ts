@@ -2,24 +2,28 @@ version: 2.1
 orbs:
   node: circleci/node@5.2.0
 jobs:
-  bun-install:
-    docker:
-      - image: oven/bun:latest
-    steps:
-      - checkout
-      - run: bun install
   bun-vitest-test:
     docker:
       - image: oven/bun:latest
+    restore_cache:
+      keys:
+        - dependency-cache-{{ checksum "package.json" }}
     steps:
       - checkout
+      - run: bun install
       - run: bun run test
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
   bun-vite-build:
     docker:
       - image: oven/bun:latest
     steps:
       - checkout
-      - run: bun add typescript
+      - restore_cache:
+          keys:
+            - dependency-cache-{{ checksum "package.json" }}
       - run: bun run build
       - store_artifacts:
           path: dist
@@ -27,10 +31,7 @@ jobs:
 workflows:
   test-and-build:
     jobs:
-      - bun-install
-      - bun-vitest-test:
-          requires:
-            - bun-install
+      - bun-vitest-test
       - bun-vite-build:
           requires:
             - bun-vitest-test
