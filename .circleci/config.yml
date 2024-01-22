@@ -45,6 +45,7 @@ jobs:
 workflows:
   test-and-build:
     jobs:
+      - bun-install
       - bun-vitest-test:
           requires:
             - bun-install
