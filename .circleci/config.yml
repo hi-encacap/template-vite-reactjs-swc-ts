@@ -4,8 +4,8 @@ orbs:
 jobs:
   bun-vitest-test:
     docker:
-      - image: oven/bun:latest
       - image: cimg/node:21.6.0
+      - image: oven/bun:latest
     steps:
       - checkout
       - restore_cache:
