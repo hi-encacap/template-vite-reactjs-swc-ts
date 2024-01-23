@@ -14,6 +14,7 @@ jobs:
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "bun.lockb" }}
+            - dependency-cache-
       - run: bun install
       - save_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
@@ -27,9 +28,6 @@ jobs:
       - node/install:
           node-version: "20.10.0"
       - bun/install
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun run test:coverage
       - store_artifacts:
           path: ./test
@@ -39,9 +37,6 @@ jobs:
       - image: oven/bun
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun add typescript
       - run: bun run build
       - store_artifacts:
