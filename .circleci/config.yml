@@ -12,7 +12,8 @@ jobs:
       - checkout
       - bun/install
       - restore_cache:
-          key: dependency-cache-{{ checksum "bun.lockb" }}
+          keys:
+            - dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun install
       - save_cache:
           key: dependency-cache-{{ checksum "bun.lockb" }}
@@ -27,7 +28,8 @@ jobs:
           node-version: "20.10.0"
       - bun/install
       - restore_cache:
-          key: dependency-cache-{{ checksum "bun.lockb" }}
+          keys:
+            - dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun run test:coverage
       - store_artifacts:
           path: ./test
@@ -38,7 +40,8 @@ jobs:
     steps:
       - checkout
       - restore_cache:
-          key: dependency-cache-{{ checksum "bun.lockb" }}
+          keys:
+            - dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun run build
       - store_artifacts:
           path: dist
