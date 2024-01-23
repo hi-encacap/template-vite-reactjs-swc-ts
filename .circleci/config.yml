@@ -42,6 +42,7 @@ jobs:
       - restore_cache:
           keys:
             - dependency-cache-{{ checksum "bun.lockb" }}
+      - run: bun add typescript
       - run: bun run build
       - store_artifacts:
           path: dist
