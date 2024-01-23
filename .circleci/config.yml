@@ -40,7 +40,6 @@ jobs:
       - image: oven/bun
     steps:
       - checkout
-      - bun/install
       - restore_cache:
           keys:
             - v1-dependency-cache-{{ checksum "bun.lockb" }}
@@ -49,12 +48,13 @@ jobs:
           path: dist
           destination: /tmp/template-vite-react-swc-ts-dist
 workflows:
-  test-and-build:
+  dev-test:
     jobs:
-      - bun-install
+      - bun-install:
+          filters:
+            branches:
+              only:
+                - dev
       - bun-vitest-test:
           requires:
             - bun-install
-      - bun-vite-build:
-          requires:
-            - bun-vitest-test
