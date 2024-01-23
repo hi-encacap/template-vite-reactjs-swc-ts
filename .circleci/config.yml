@@ -20,7 +20,7 @@ jobs:
           key: v1-dependency-cache-{{ checksum "bun.lockb" }}
           paths:
             - node_modules
-  bun-vitest-test:
+  bun-vitest:
     docker:
       - image: cimg/base:stable
     steps:

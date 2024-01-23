@@ -16,6 +16,7 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "json"],
       reportsDirectory: "./test/coverage",
+      extension: [".ts", ".tsx"],
     },
   },
 });
