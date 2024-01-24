@@ -1,29 +1,60 @@
+# CircleCI.
+
 version: 2.1
 orbs:
+  bun: ksylvest/bun@1.0.1
   node: circleci/node@5.2.0
 jobs:
-  bun-vite-test:
+  bun-install:
     docker:
-      - image: oven/bun:latest
+      - image: cimg/base:stable
     steps:
       - checkout
-      - run:
-          name: "bun-vite-test"
-          command: bun test
+      - bun/install
+      - restore_cache:
+          keys:
+            - v1-dependency-cache-{{ checksum "bun.lockb" }}
+            - v1-dependency-cache-
+      - run: bun install
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum "bun.lockb" }}
+          paths:
+            - node_modules
+  bun-vitest:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - node/install:
+          node-version: "20.10.0"
+      - bun/install
+      - restore_cache:
+          keys:
+            - v1-dependency-cache-{{ checksum "bun.lockb" }}
+      - run: bun run test:coverage
+      - store_artifacts:
+          path: ./test
+          destination: /tmp/template-vite-react-swc-ts-test
   bun-vite-build:
     docker:
-      - image: oven/bun:latest
+      - image: oven/bun
     steps:
       - checkout
-      - run: bun add typescript
+      - restore_cache:
+          keys:
+            - v1-dependency-cache-{{ checksum "bun.lockb" }}
       - run: bun run build
       - store_artifacts:
           path: dist
-          destination: /tmp/template-vite-react-swc-ts
+          destination: /tmp/template-vite-react-swc-ts-dist
 workflows:
-  test-and-build:
+  dev-test:
     jobs:
-      - bun-vite-test
-      - bun-vite-build:
+      - bun-install:
+          filters:
+            branches:
+              only:
+                - dev
+      - bun-vitest-test:
           requires:
-            - bun-vite-test
+            - bun-install
