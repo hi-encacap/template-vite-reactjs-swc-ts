@@ -55,6 +55,6 @@ workflows:
             branches:
               only:
                 - dev
-      - bun-vitest-test:
+      - bun-vitest:
           requires:
             - bun-install
