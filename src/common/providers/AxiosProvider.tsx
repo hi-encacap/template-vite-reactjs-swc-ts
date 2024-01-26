@@ -10,7 +10,11 @@ interface AxiosProviderProps {
 const UMAxiosProvider = ({ children }: AxiosProviderProps) => {
   const handleAxiosError = useCallback((error: unknown) => {
     if (isAxiosError(error)) {
-      return Promise.reject(error);
+      // const { response } = error;
+      // if (response) {
+      //   const { data, status } = response as AxiosResponse<unknown>;
+      //   toast.error(`${status}: ${String(data)}`);
+      // }
     }
 
     return Promise.reject(error);

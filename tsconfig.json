@@ -20,7 +20,8 @@
     "baseUrl": "./",
     "paths": {
       "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/common/components/*"],
+      "@providers/*": ["src/common/providers/*"],
       "@features/*": ["src/features/*"],
       "@services/*": ["src/lib/services/*"],
       "@hooks/*": ["src/lib/hooks/*"],

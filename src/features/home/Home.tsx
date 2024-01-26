@@ -1,14 +1,24 @@
 import { memo, useCallback } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
-import { axios } from "@utils/index";
+import useToast from "@hooks/useToast";
 
 const UMHome = () => {
   const intl = useIntl();
+  const toast = useToast();
 
-  const handleClick = useCallback(async () => {
-    await axios.get("ping", { timeout: 100 });
-  }, []);
+  const handleClick = useCallback(() => {
+    toast.success(
+      intl.formatMessage({ id: "app.hello_from_name_em" }, { name: "Encacap" }),
+      "This is the toast message. Can too long :))",
+    );
+    toast.error("Or only have the title only. It will be the same as the message");
+    toast.warning(
+      intl.formatMessage({ id: "app.hello_from_name_em" }, { name: "Encacap" }),
+      "This is the toast message. Can too long :))",
+    );
+    toast.info("Or only have the title only. It will be the same as the message");
+  }, [intl, toast]);
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center space-y-4">

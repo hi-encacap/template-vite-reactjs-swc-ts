@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import { Provider } from "@/components/Provider";
 import { Home } from "@features/home";
+import { Provider } from "@providers/index";
 
 const UMApp = () => {
   return (
