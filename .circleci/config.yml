@@ -13,11 +13,11 @@ jobs:
       - bun/install
       - restore_cache:
           keys:
-            - v1-dependency-cache-{{ checksum "bun.lockb" }}
+            - v1-dependency-cache-{{ checksum "package.json" }}
             - v1-dependency-cache-
       - run: bun install
       - save_cache:
-          key: v1-dependency-cache-{{ checksum "bun.lockb" }}
+          key: v1-dependency-cache-{{ checksum "package.json" }}
           paths:
             - node_modules
   bun-vitest:
@@ -30,7 +30,7 @@ jobs:
       - bun/install
       - restore_cache:
           keys:
-            - v1-dependency-cache-{{ checksum "bun.lockb" }}
+            - v1-dependency-cache-{{ checksum "package.json" }}
       - run: bun run test:coverage
       - store_artifacts:
           path: ./test
@@ -42,7 +42,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-dependency-cache-{{ checksum "bun.lockb" }}
+            - v1-dependency-cache-{{ checksum "package.json" }}
       - run: bun run build
       - store_artifacts:
           path: dist
