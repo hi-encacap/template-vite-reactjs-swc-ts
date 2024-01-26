@@ -48,13 +48,15 @@ jobs:
           path: dist
           destination: /tmp/template-vite-react-swc-ts-dist
 workflows:
-  dev-test:
+  dev-pr-test:
+    # Run on pull requests to dev branch. (filter: not `dev` or `main` branch will run)
     jobs:
       - bun-install:
           filters:
             branches:
-              only:
+              ignore:
                 - dev
+                - main
       - bun-vitest:
           requires:
             - bun-install
