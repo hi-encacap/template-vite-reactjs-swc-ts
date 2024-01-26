@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "react-toastify/dist/ReactToastify.css";
+
 html {
-  @apply font-noto-sans;
+  @apply font-be-vietnam-pro text-message;
 }
 
 .spinner {
@@ -11,5 +13,39 @@ html {
 
   & .path {
     @apply animate-dash stroke-inherit;
+  }
+}
+
+.Toastify {
+  &__toast {
+    @apply rounded-xl border-2 py-5 pl-5 pr-5 shadow-none;
+
+    &--success {
+      @apply border-green-primary-dark bg-green-primary-light;
+    }
+
+    &--error {
+      @apply border-red-primary-light bg-red-primary-extra-light;
+    }
+
+    &--info {
+      @apply border-blue-primary-light bg-blue-primary-extra-light;
+    }
+
+    &--warning {
+      @apply border-orange-primary-light bg-orange-primary-extra-light;
+    }
+
+    &-container {
+      @apply w-fit max-w-md;
+    }
+
+    &-body {
+      @apply items-start p-0;
+    }
+
+    &-icon {
+      @apply mr-6;
+    }
   }
 }

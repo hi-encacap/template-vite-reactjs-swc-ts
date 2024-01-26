@@ -4,7 +4,7 @@ import { IntlProvider as IntlProviderOriginal } from "react-intl";
 import useQuery from "@hooks/useQuery";
 import { languageService } from "@services/index";
 
-import { LoadingOverlay } from "../Loading";
+import { LoadingOverlay } from "../components/Loading";
 
 interface IntlProviderProps {
   children: ReactNode;
