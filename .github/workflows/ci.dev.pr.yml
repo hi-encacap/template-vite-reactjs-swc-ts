@@ -42,3 +42,4 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-bun-
       - run: bun run test:coverage
+      - run: bun run build
