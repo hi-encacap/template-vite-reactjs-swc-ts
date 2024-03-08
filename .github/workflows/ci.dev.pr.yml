@@ -1,0 +1,45 @@
+# `dev` CI/CD pipeline. Only run on the PRs to `dev` branch, not on the `dev` branch itself.
+name: DEV's PR CI/CD
+
+on:
+  pull_request:
+    branches:
+      - dev
+    types: [opened, synchronize, reopened]
+
+jobs:
+  bun-install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: Restore node_modules cache
+        uses: actions/cache/restore@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+      - run: bun install
+      - name: Save node_modules cache
+        uses: actions/cache/save@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+  bun-vitest:
+    needs: bun-install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: Restore node_modules cache
+        uses: actions/cache/restore@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+      - run: bun run test:coverage
+      - run: bun run build

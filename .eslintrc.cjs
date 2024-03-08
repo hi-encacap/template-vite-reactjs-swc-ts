@@ -46,5 +46,11 @@ module.exports = {
     "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "react/require-default-props": "off",
     "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        checksVoidReturn: false,
+      },
+    ],
   },
 };

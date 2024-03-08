@@ -9,7 +9,7 @@ import { IAxiosResponse } from "@interfaces/axios";
 
 type UseQueryResult<TData, TError> = Omit<UseQueryResultOriginal<TData, TError>, "data"> & {
   data: TData | null;
-  meta: unknown | null;
+  meta: unknown;
 };
 
 const useQuery = <
