@@ -26,6 +26,7 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
   deploy:
     runs-on: ubuntu-latest
+    needs: bun-install
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to GitHub Pages
