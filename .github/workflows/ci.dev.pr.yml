@@ -1,5 +1,4 @@
-# `dev` CI/CD pipeline. Only run on the PRs to `dev` branch, not on the `dev` branch itself.
-name: DEV's PR CI/CD
+name: DEV's PR CI
 
 on:
   pull_request:
@@ -26,8 +25,6 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
   bun-vitest:
     needs: bun-install
     runs-on: ubuntu-latest
