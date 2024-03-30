@@ -26,6 +26,7 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
   bun-build:
     runs-on: ubuntu-latest
+    environment: release-main
     needs: bun-install
     steps:
       - uses: actions/checkout@v4
@@ -37,7 +38,6 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-bun-
-      - run: echo $VITE_APP_NAME $VITE_APP_API_BASE_URL
       - run: bun run build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
