@@ -27,6 +27,9 @@ jobs:
   bun-build:
     runs-on: ubuntu-latest
     environment: release-main
+    env:
+      VITE_APP_NAME: ${{ vars.VITE_APP_NAME }}
+      VITE_APP_API_BASE_URL: ${{ vars.VITE_APP_API_BASE_URL }}
     needs: bun-install
     steps:
       - uses: actions/checkout@v4
