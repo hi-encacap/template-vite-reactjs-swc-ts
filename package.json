@@ -50,10 +50,8 @@
   "private": true,
   "scripts": {
     "build": "tsc && bun run lint && vite build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "predeploy": "npm run build",
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
