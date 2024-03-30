@@ -40,7 +40,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sass": "^1.69.7",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5.3.3",
+    "typescript": "^5.4.3",
     "vite": "^5.0.8",
     "vite-plugin-webfont-dl": "^3.9.1",
     "vite-tsconfig-paths": "^4.3.1",
@@ -50,8 +50,10 @@
   "private": true,
   "scripts": {
     "build": "tsc && bun run lint && vite build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "predeploy": "npm run build",
     "preview": "vite preview",
     "test": "vitest",
     "test:coverage": "vitest run --coverage"

@@ -1,10 +1,9 @@
-name: DEV's PR CI
+name: MAIN's CI/CD
 
 on:
-  pull_request:
+  push:
     branches:
-      - dev
-    types: [opened, synchronize, reopened]
+      - main
 
 jobs:
   bun-install:
@@ -25,18 +24,12 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
-  bun-vitest:
-    needs: bun-install
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
-      - name: Restore node_modules cache
-        uses: actions/cache/restore@v4
+      - uses: actions/checkout@v2
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-bun-
-      - run: bun run test:coverage
-      - run: bun run build
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
