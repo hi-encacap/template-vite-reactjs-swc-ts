@@ -3,7 +3,7 @@ import { memo } from "react";
 import { Home } from "@features/home";
 import { Provider } from "@providers/index";
 
-const UMApp = () => {
+const App = () => {
   return (
     <Provider>
       <Home />
@@ -11,6 +11,4 @@ const UMApp = () => {
   );
 };
 
-const App = memo(UMApp);
-
-export default App;
+export default memo(App);

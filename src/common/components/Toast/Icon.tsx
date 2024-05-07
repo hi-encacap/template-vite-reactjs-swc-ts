@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 import { Exclamation } from "@components/Icon";
 
-const UMToastIcon = ({ type }: IconProps) => {
+const ToastIcon = ({ type }: IconProps) => {
   return (
     <div
       className={twMerge(
@@ -20,10 +20,7 @@ const UMToastIcon = ({ type }: IconProps) => {
       {type === "error" && <X size={15} strokeWidth={3} className="mt-px" />}
       {(type === "info" || type === "warning") && <Exclamation className="w-1" />}
     </div>
-    // bg-gradient-to-r from-green-300 via-blue-500 to-purple-600
   );
 };
 
-const ToastIcon = memo(UMToastIcon);
-
-export default ToastIcon;
+export default memo(ToastIcon);

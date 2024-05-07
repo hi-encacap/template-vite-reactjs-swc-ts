@@ -5,7 +5,7 @@ interface ToastMessageProps {
   title: string;
 }
 
-const UMToastMessage = ({ title, message: messageProp }: ToastMessageProps) => {
+const ToastMessage = ({ title, message: messageProp }: ToastMessageProps) => {
   const message = useMemo(() => {
     if (title && messageProp) {
       return messageProp;
@@ -22,6 +22,4 @@ const UMToastMessage = ({ title, message: messageProp }: ToastMessageProps) => {
   );
 };
 
-const ToastMessage = memo(UMToastMessage);
-
-export default ToastMessage;
+export default memo(ToastMessage);

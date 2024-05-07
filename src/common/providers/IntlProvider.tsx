@@ -10,7 +10,7 @@ interface IntlProviderProps {
   children: ReactNode;
 }
 
-const UMIntlProvider = ({ children }: IntlProviderProps) => {
+const IntlProvider = ({ children }: IntlProviderProps) => {
   const { data, isLoading } = useQuery({
     queryKey: ["language", "translation"],
     queryFn: languageService.getUserLanguageTranslation,
@@ -27,6 +27,4 @@ const UMIntlProvider = ({ children }: IntlProviderProps) => {
   );
 };
 
-const IntlProvider = memo(UMIntlProvider);
-
-export default IntlProvider;
+export default memo(IntlProvider);

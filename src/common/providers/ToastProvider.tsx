@@ -3,7 +3,7 @@ import { IconProps, ToastContainer } from "react-toastify";
 
 import { CloseButtonProps, ToastCloseButton, ToastIcon } from "@components/Toast";
 
-const UMToastProvider = () => {
+const ToastProvider = () => {
   const renderIcon = useCallback((props: IconProps) => <ToastIcon {...props} />, []);
   const renderCloseButton = useCallback((props: CloseButtonProps) => <ToastCloseButton {...props} />, []);
 
@@ -17,6 +17,4 @@ const UMToastProvider = () => {
   );
 };
 
-const ToastProvider = memo(UMToastProvider);
-
-export default ToastProvider;
+export default memo(ToastProvider);

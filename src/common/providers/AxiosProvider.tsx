@@ -7,7 +7,7 @@ interface AxiosProviderProps {
   children: ReactNode;
 }
 
-const UMAxiosProvider = ({ children }: AxiosProviderProps) => {
+const AxiosProvider = ({ children }: AxiosProviderProps) => {
   const handleAxiosError = useCallback((error: unknown) => {
     if (isAxiosError(error)) {
       // const { response } = error;
@@ -27,6 +27,4 @@ const UMAxiosProvider = ({ children }: AxiosProviderProps) => {
   return children;
 };
 
-const AxiosProvider = memo(UMAxiosProvider);
-
-export default AxiosProvider;
+export default memo(AxiosProvider);

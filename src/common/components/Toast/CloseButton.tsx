@@ -3,7 +3,7 @@ import { memo } from "react";
 
 import { CloseButtonProps } from "./interface";
 
-const UMToastCloseButton = ({ closeToast }: CloseButtonProps) => {
+const ToastCloseButton = ({ closeToast }: CloseButtonProps) => {
   return (
     <button
       aria-label="close"
@@ -16,6 +16,4 @@ const UMToastCloseButton = ({ closeToast }: CloseButtonProps) => {
   );
 };
 
-const ToastCloseButton = memo(UMToastCloseButton);
-
-export default ToastCloseButton;
+export default memo(ToastCloseButton);

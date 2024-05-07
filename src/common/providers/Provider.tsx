@@ -9,7 +9,7 @@ interface UnmemorizedProviderProps {
   children: ReactNode;
 }
 
-const UMProvider = ({ children }: UnmemorizedProviderProps) => {
+const Provider = ({ children }: UnmemorizedProviderProps) => {
   const queryClient = useMemo(() => new QueryClient(), []);
 
   return (
@@ -24,6 +24,4 @@ const UMProvider = ({ children }: UnmemorizedProviderProps) => {
   );
 };
 
-const Provider = memo(UMProvider);
-
-export default Provider;
+export default memo(Provider);

@@ -1,5 +1,4 @@
 import enUS from "../../../locales/en-US.json";
-import viVN from "../../../locales/vi-VN.json";
 
 const detectLanguage = () => {
   const { language } = window.navigator;
@@ -10,7 +9,6 @@ const detectLanguage = () => {
 const getLanguageTranslationByCode = (code: string) => {
   const languages = {
     "en-US": enUS,
-    "vi-VN": viVN,
   };
   const result = languages[code as keyof typeof languages];
 

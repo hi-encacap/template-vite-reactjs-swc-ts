@@ -3,7 +3,7 @@ import { FormattedMessage, useIntl } from "react-intl";
 
 import useToast from "@hooks/useToast";
 
-const UMHome = () => {
+const Home = () => {
   const intl = useIntl();
   const toast = useToast();
 
@@ -32,6 +32,4 @@ const UMHome = () => {
   );
 };
 
-const Home = memo(UMHome);
-
-export default Home;
+export default memo(Home);
