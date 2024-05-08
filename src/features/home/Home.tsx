@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
-import useToast from "@hooks/useToast";
+import useToast from "@/common/hooks/useToast";
 
 const Home = () => {
   const intl = useIntl();

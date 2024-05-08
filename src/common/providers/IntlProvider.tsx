@@ -1,7 +1,7 @@
 import { ReactNode, memo } from "react";
 import { IntlProvider as IntlProviderOriginal } from "react-intl";
 
-import useQuery from "@hooks/useQuery";
+import useQuery from "@/common/hooks/useQuery";
 import { languageService } from "@services/index";
 
 import { LoadingOverlay } from "../components/Loading";

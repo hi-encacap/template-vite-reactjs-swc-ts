@@ -1,7 +1,7 @@
 import { isAxiosError } from "axios";
 import { ReactNode, memo, useCallback, useEffect } from "react";
 
-import { axios } from "@utils/index";
+import { axios } from "@/utils/index";
 
 interface AxiosProviderProps {
   children: ReactNode;
