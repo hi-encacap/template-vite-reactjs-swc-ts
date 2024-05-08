@@ -2,6 +2,7 @@ import { memo, useCallback } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 import useToast from "@/common/hooks/useToast";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const intl = useIntl();
@@ -25,9 +26,13 @@ const Home = () => {
       <div>
         <FormattedMessage id="app.hello_from_name_em" values={{ name: "Encacap" }} />
       </div>
-      <button className="text-sm" type="button" onClick={handleClick}>
-        {intl.formatMessage({ id: "app.click_me_em" })}
-      </button>
+      <div className="flex items-center space-x-4 text-sm">
+        <button type="button" onClick={handleClick}>
+          {intl.formatMessage({ id: "app.toast" })}
+        </button>
+        <div>-</div>
+        <Link to="/about">About</Link>
+      </div>
     </div>
   );
 };

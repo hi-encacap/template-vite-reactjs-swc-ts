@@ -7,14 +7,7 @@ const ToastProvider = () => {
   const renderIcon = useCallback((props: IconProps) => <ToastIcon {...props} />, []);
   const renderCloseButton = useCallback((props: CloseButtonProps) => <ToastCloseButton {...props} />, []);
 
-  return (
-    <ToastContainer
-      closeButton={renderCloseButton}
-      icon={renderIcon}
-      position="top-right"
-      autoClose={false}
-    />
-  );
+  return <ToastContainer closeButton={renderCloseButton} icon={renderIcon} position="top-right" />;
 };
 
 export default memo(ToastProvider);

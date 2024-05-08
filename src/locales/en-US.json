@@ -1,4 +1,5 @@
 {
-  "app.click_me_em": "Click me!",
-  "app.hello_from_name_em": "Hello from {name}!"
+  "app.about": "About",
+  "app.hello_from_name_em": "Hello from {name}!",
+  "app.toast": "Toast"
 }
