@@ -4,11 +4,11 @@ import { FlatCompat } from "@eslint/eslintrc";
 import eslint from "@eslint/js";
 import parser from "@typescript-eslint/parser";
 import esimport from "eslint-plugin-import";
+import esjsxa11y from "eslint-plugin-jsx-a11y";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import esreact from "eslint-plugin-react";
-import path from "path";
 import sonarjs from "eslint-plugin-sonarjs";
-import esjsxa11y from "eslint-plugin-jsx-a11y";
+import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
