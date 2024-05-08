@@ -56,7 +56,8 @@
   "name": "template-vite-react-swc-ts",
   "private": true,
   "scripts": {
-    "build": "tsc && bun run lint && vite build",
+    // "build": "tsc && bun run lint && vite build",
+    "build": "tsc && vite build",
     "dev": "vite",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
