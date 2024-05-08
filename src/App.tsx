@@ -1,12 +1,12 @@
 import { memo } from "react";
 
-import { Home } from "@features/home";
+import Router from "@app/routes/Router";
 import { Provider } from "@providers/index";
 
 const App = () => {
   return (
     <Provider>
-      <Home />
+      <Router />
     </Provider>
   );
 };
