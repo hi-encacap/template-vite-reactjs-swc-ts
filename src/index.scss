@@ -47,5 +47,25 @@ html {
     &-icon {
       @apply mr-6;
     }
+
+    // Toastify__progress-bar Toastify__progress-bar--animated Toastify__progress-bar-theme--light Toastify__progress-bar--success
+  }
+
+  &__progress-bar {
+    &--success {
+      @apply bg-green-primary-dark;
+    }
+
+    &--error {
+      @apply -mb-px h-1.5 bg-red-primary-light;
+    }
+
+    &--info {
+      @apply bg-blue-primary-light;
+    }
+
+    &--warning {
+      @apply bg-orange-primary-light;
+    }
   }
 }
