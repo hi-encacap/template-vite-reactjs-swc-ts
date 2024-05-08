@@ -25,7 +25,7 @@
       "@features/*": ["src/features/*"],
       "@services/*": ["src/app/services/*"],
       "@hooks/*": ["src/common/hooks/*"],
-      "@interfaces/*": ["src/app/interfaces/*"],
+      "@interfaces/*": ["src/interfaces/*"],
       "@utils/*": ["src/utils/*"],
       "@app/*": ["src/app/*"],
       "@/*": ["src/*"],

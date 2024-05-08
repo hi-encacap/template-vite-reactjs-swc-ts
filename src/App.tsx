@@ -1,6 +1,6 @@
 import { memo } from "react";
 
-import Router from "@app/routes/Router";
+import Router from "@app/routes/Route";
 import { Provider } from "@providers/index";
 
 const App = () => {

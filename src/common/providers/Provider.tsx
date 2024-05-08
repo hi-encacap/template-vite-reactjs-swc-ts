@@ -1,6 +1,8 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactNode, memo, useMemo } from "react";
+import { Provider as ReduxProvider } from "react-redux";
 
+import { store } from "@app/store";
 import AxiosProvider from "./AxiosProvider";
 import IntlProvider from "./IntlProvider";
 import ToastProvider from "./ToastProvider";
@@ -15,11 +17,13 @@ const Provider = ({ children }: UnmemorizedProviderProps) => {
   return (
     <>
       <ToastProvider />
-      <AxiosProvider>
-        <QueryClientProvider client={queryClient}>
-          <IntlProvider>{children}</IntlProvider>
-        </QueryClientProvider>
-      </AxiosProvider>
+      <ReduxProvider store={store}>
+        <AxiosProvider>
+          <QueryClientProvider client={queryClient}>
+            <IntlProvider>{children}</IntlProvider>
+          </QueryClientProvider>
+        </AxiosProvider>
+      </ReduxProvider>
     </>
   );
 };

@@ -5,7 +5,7 @@ import {
   UseQueryResult as UseQueryResultOriginal,
 } from "@tanstack/react-query";
 
-import { IAxiosResponse } from "@/app/interfaces/axios";
+import { IAxiosResponse } from "@/interfaces/axios";
 
 type UseQueryResult<TData, TError> = Omit<UseQueryResultOriginal<TData, TError>, "data"> & {
   data: TData | null;
