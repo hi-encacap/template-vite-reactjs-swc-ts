@@ -43,7 +43,6 @@ jobs:
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
           restore-keys: |
             ${{ runner.os }}-bun-
-      - run: echo "APP_CROWDIN_PROJECT_ID=${APP_CROWDIN_PROJECT_ID}"
       - run: bun run build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
