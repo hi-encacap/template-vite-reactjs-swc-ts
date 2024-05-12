@@ -36,3 +36,7 @@ test
 *.njsproj
 *.sln
 *.sw?
+
+# Only tracking the ./src/locales/en-{us,US}.json files
+/src/locales
+!/src/locales/en-US.json

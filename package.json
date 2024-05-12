@@ -13,6 +13,7 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
+    "@crowdin/cli": "^3.19.3",
     "@eslint/js": "^9.2.0",
     "@nabla/vite-plugin-eslint": "^2.0.2",
     "@tanstack/eslint-plugin-query": "^5.32.1",
@@ -56,8 +57,12 @@
   "name": "template-vite-react-swc-ts",
   "private": true,
   "scripts": {
-    "build:without-lint": "tsc && bun run lint && vite build",
-    "build": "tsc && vite build",
+    "build": "tsc && bun run crowdin:pull && vite build",
+    "build:with-lint": "tsc && bun run lint && bun run crowdin:pull && vite build",
+    "crowdin:dev:pull": "dotenv -e .env -c development bun run crowdin:pull",
+    "crowdin:dev:push": "dotenv -e .env -c development bun run crowdin:push",
+    "crowdin:pull": "crowdin pull",
+    "crowdin:push": "crowdin push sources --auto-update",
     "dev": "vite",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
