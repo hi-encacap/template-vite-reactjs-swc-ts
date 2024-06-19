@@ -28,6 +28,8 @@
       "@interfaces/*": ["src/interfaces/*"],
       "@utils/*": ["src/utils/*"],
       "@app/*": ["src/app/*"],
+      "@constants/*": ["src/constants/*"],
+      "@hocs/*": ["src/common/hocs/*"],
       "@/*": ["src/*"],
     },
   },

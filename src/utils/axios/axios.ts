@@ -2,7 +2,7 @@ import { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestC
 
 import AxiosSingleton from "./axiosSingleton";
 
-class Axios {
+export class Axios {
   private instance: AxiosInstance;
 
   constructor() {
@@ -29,6 +29,10 @@ class Axios {
     return this.instance.put<T>(url, data, config);
   }
 
+  public patch<T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig) {
+    return this.instance.patch<T>(url, data, config);
+  }
+
   public setRequestInterceptor(
     onFulfilled?: (value: InternalAxiosRequestConfig) => InternalAxiosRequestConfig,
     onRejected?: (error: unknown) => unknown,
@@ -42,14 +46,8 @@ class Axios {
   ) {
     return this.instance.interceptors.response.use(onFulfilled, onRejected);
   }
-
-  static normalizeRequestConfig(config: InternalAxiosRequestConfig) {
-    return config;
-  }
 }
 
 const axios = Object.freeze(new Axios());
-
-axios.setRequestInterceptor((config) => Axios.normalizeRequestConfig(config));
 
 export default axios;

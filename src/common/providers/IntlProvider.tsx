@@ -1,8 +1,8 @@
 import { ReactNode, memo, useEffect } from "react";
 import { IntlProvider as IntlProviderOriginal } from "react-intl";
 
-import useQuery from "@/common/hooks/useQuery";
 import { languageService } from "@services/index";
+import { useQuery } from "@tanstack/react-query";
 
 interface IntlProviderProps {
   children: ReactNode;
@@ -13,6 +13,8 @@ const IntlProvider = ({ children, onLoad }: IntlProviderProps) => {
   const { data, isLoading } = useQuery({
     queryKey: ["language", "translation"],
     queryFn: languageService.getUserLanguageTranslation,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   useEffect(() => {
