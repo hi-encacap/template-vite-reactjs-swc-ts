@@ -1,10 +1,10 @@
 export interface IAxiosResponseMeta {
-  total: number;
   page: number;
   limit: number;
+  totalPage: number;
+  totalResults: number;
 }
 
-export interface IAxiosResponse<T = unknown> {
-  data: T;
-  meta: IAxiosResponseMeta;
+export interface IAxiosResponse<T = unknown> extends IAxiosResponseMeta {
+  results: T;
 }

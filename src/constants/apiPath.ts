@@ -3,3 +3,7 @@ export const AUTH = {
   REFRESH_TOKEN: "v1/auth/refresh-tokens",
   ME: "v1/auth/me",
 };
+
+export const UPLOAD = {
+  SINGLE: "v1/uploads/single",
+};

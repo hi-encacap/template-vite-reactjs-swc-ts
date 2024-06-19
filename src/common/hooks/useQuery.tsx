@@ -5,12 +5,12 @@ import {
   UseQueryResult as UseQueryResultOriginal,
 } from "@tanstack/react-query";
 
-import { IAxiosResponse } from "@/interfaces/axios";
+import { IAxiosResponse, IAxiosResponseMeta } from "@/interfaces/axios";
 
-type UseQueryResult<TData, TError> = Omit<UseQueryResultOriginal<TData, TError>, "data"> & {
-  data: TData | null;
-  meta: unknown;
-};
+type UseQueryResult<TData, TError> = Omit<UseQueryResultOriginal<TData, TError>, "data"> &
+  IAxiosResponseMeta & {
+    results: TData;
+  };
 
 const useQuery = <
   TQueryFnData = unknown,
@@ -19,31 +19,23 @@ const useQuery = <
   TQueryKey extends QueryKey = QueryKey,
 >(
   options: UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
-): UseQueryResult<TData, TError> => {
+): UseQueryResult<TData, TError> | TData => {
   const queryResults = useQueryOriginal(options);
   const response = queryResults.data as IAxiosResponse<TData> | TData;
 
   if (response && typeof response === "object") {
-    if ("data" in response) {
+    if ("results" in response) {
       return {
         ...queryResults,
-        meta: response.meta,
-        data: response.data,
+        ...response,
+        results: response.results,
       };
     }
 
-    return {
-      ...queryResults,
-      meta: null,
-      data: response,
-    };
+    return response as TData;
   }
 
-  return {
-    ...queryResults,
-    meta: null,
-    data: null,
-  };
+  return queryResults as unknown as IAxiosResponseMeta & TData;
 };
 
 export default useQuery;

@@ -5,7 +5,11 @@
 @import "react-toastify/dist/ReactToastify.css";
 
 html {
-  @apply font-be-vietnam-pro text-message;
+  @apply font-reddit-sans text-message;
+}
+
+body {
+  @apply w-full overflow-y-auto overflow-x-hidden;
 }
 
 .spinner {
@@ -19,6 +23,15 @@ html {
 .Toastify {
   &__toast {
     @apply rounded-xl border-2 py-5 pl-5 pr-5 shadow-none;
+
+    &-container {
+      &--top-right {
+        @apply right-6 top-4;
+      }
+      &--bottom-left {
+        @apply bottom-0;
+      }
+    }
 
     &--success {
       @apply border-green-primary-dark bg-green-primary-light;
@@ -52,12 +65,14 @@ html {
   }
 
   &__progress-bar {
+    @apply -mb-px h-1.5;
+
     &--success {
       @apply bg-green-primary-dark;
     }
 
     &--error {
-      @apply -mb-px h-1.5 bg-red-primary-light;
+      @apply bg-red-primary-light;
     }
 
     &--info {
@@ -67,5 +82,69 @@ html {
     &--warning {
       @apply bg-orange-primary-light;
     }
+  }
+}
+
+// Ant Design
+// .table-header-filter {
+//   .ant-select-selector {
+//     @apply text-base;
+//   }
+// }
+
+.ant {
+  &-pagination {
+    @apply pt-2;
+
+    .ant-pagination-prev,
+    .ant-pagination-next,
+    .ant-pagination-item,
+    .ant-pagination-jump-next-custom-icon {
+      @apply h-8.5 border-2 border-gray-100 bg-zinc-50 hover:border-gray-200 hover:bg-zinc-100;
+    }
+
+    .ant-pagination-item-active {
+      @apply border-primary bg-primary hover:border-primary hover:bg-primary;
+
+      a {
+        @apply text-white duration-0 hover:text-white;
+      }
+    }
+
+    .ant-pagination-total-text {
+      @apply flex flex-1 items-center self-start;
+    }
+
+    .ant-pagination-disabled {
+      @apply opacity-50;
+    }
+
+    &.table-grid-pagination {
+      @apply mb-4 mt-4 flex items-center #{!important};
+
+      .ant-pagination-total-text {
+        @apply flex-1 text-sm #{!important};
+      }
+    }
+  }
+
+  &-upload-list.ant-upload-list-picture-card {
+    @apply space-x-2;
+  }
+
+  &-table {
+    &-column {
+      &-sorter {
+        @apply ms-2 #{!important};
+      }
+    }
+  }
+
+  &-btn-primary {
+    @apply bg-primary;
+  }
+
+  &-modal {
+    @apply my-6;
   }
 }
