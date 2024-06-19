@@ -25,6 +25,7 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-bun-${{ hashFiles('**/package.json') }}
+
   bun-vitest:
     needs: bun-install
     runs-on: ubuntu-latest
