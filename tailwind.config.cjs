@@ -7,6 +7,13 @@ module.exports = {
       animation: {
         dash: "dash 1.5s ease-in-out infinite",
       },
+      borderRadius: {
+        llg: "0.625rem",
+        "2.5xl": "1.25rem",
+      },
+      boxShadow: {
+        centered: "0rem 0.3125rem 0.3125rem 0rem rgba(82, 63, 105, 0.05)",
+      },
       colors: {
         "green-primary": "rgb(72, 202, 147)",
         "green-primary-dark": "rgb(72, 193, 181)",
@@ -17,7 +24,7 @@ module.exports = {
         "red-primary-extra-light": "rgb(255, 245, 243)",
         "red-secondary": "rgb(202, 80, 72)",
         title: "rgb(39, 48, 58)",
-        message: "rgb(47, 63, 83)",
+        message: "#737B8B",
         "blue-primary": "rgb(77, 202, 255)",
         "blue-secondary": "rgb(78, 163, 224)",
         "blue-primary-light": "rgb(157, 192, 238)",
@@ -26,11 +33,13 @@ module.exports = {
         "orange-secondary": "rgb(255, 163, 24)",
         "orange-primary-light": "rgb(247, 217, 164)",
         "orange-primary-extra-light": "rgb(255, 248, 236)",
+        primary: "#FF6A59",
       },
       fontFamily: {
-        "noto-sans": ["Noto Sans", "sans-serif"],
-        "source-sans-3": ["Source Sans 3", "sans-serif"],
-        "be-vietnam-pro": ["Be Vietnam Pro", "sans-serif"],
+        "reddit-sans": ["Reddit Sans", "sans-serif"],
+      },
+      fontSize: {
+        md: "0.9375rem", // 15px
       },
       keyframes: {
         dash: {
@@ -39,7 +48,28 @@ module.exports = {
           "100%": { "stroke-dasharray": "90, 150", "stroke-dashoffset": -124 },
         },
       },
+      width: {
+        66: "16.5rem",
+        68: "17rem",
+        70: "17.5rem",
+        "screen-sm": "30rem", // 480px
+        "screen-xsm": "36rem", // 576px
+        "screen-smd": "42rem", // 672px
+        "screen-md": "48rem", // 768px
+        "screen-lg": "64rem", // 1024px
+        "1/24": "4.166666666666667%",
+        "fit-layout": "calc(100% - 264px)",
+      },
+      height: {
+        8.5: "2.125rem", // 34px
+        22: "5.5rem",
+        "screen-sm": "30rem", // 480px
+        "screen-xsm": "36rem", // 576px
+      },
+      spacing: {
+        0.75: "0.1875rem", // 3px
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };
