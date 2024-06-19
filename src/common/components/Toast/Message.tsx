@@ -15,7 +15,7 @@ const ToastMessage = ({ title, message: messageProp }: ToastMessageProps) => {
   }, [messageProp, title]);
 
   return (
-    <div className="flex flex-col space-y-0.5 pr-4 font-be-vietnam-pro">
+    <div className="font-be-vietnam-pro flex flex-col space-y-0.5 pr-4">
       {title && messageProp && <div className="font-medium text-title">{title}</div>}
       {message && <div className="mt-0.5 pt-px text-sm text-message">{message}</div>}
     </div>

@@ -14,11 +14,11 @@ const Router = () => {
       createBrowserRouter([
         {
           path: "/*",
-          element: !!user ? <PrivateRoute /> : <PublicRoute />,
+          element: user ? <PrivateRoute /> : <PublicRoute />,
           errorElement: <Error />,
         },
       ]),
-    [],
+    [user],
   );
 
   return <RouterProvider router={router} />;
