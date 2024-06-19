@@ -10,14 +10,14 @@ const LoginSSO = () => {
   const { formatMessage } = useIntl();
   const { setValue } = useFormContext<ILoginFormData>();
 
-  const handleClickLoginAsManager = useCallback(() => {
-    setValue("email", "manage@gmail.com");
+  const handleClickLoginAsAdmin = useCallback(() => {
+    setValue("email", "admin@gmail.com");
     setValue("password", "admin@123");
   }, [setValue]);
 
-  const handleClickLoginAsEmployee = useCallback(() => {
-    setValue("email", "employee@gmail.com");
-    setValue("password", "admin@123");
+  const handleClickLoginAsUser = useCallback(() => {
+    setValue("email", "user@gmail.com");
+    setValue("password", "user@123");
   }, [setValue]);
 
   return (
@@ -29,10 +29,8 @@ const LoginSSO = () => {
         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 border-t-2 border-gray-100" />
       </div>
       <div className="grid grid-cols-2 gap-x-6">
-        <SSOButton onClick={handleClickLoginAsManager}>{formatMessage({ id: "login_as_manager" })}</SSOButton>
-        <SSOButton onClick={handleClickLoginAsEmployee}>
-          {formatMessage({ id: "login_as_employee" })}
-        </SSOButton>
+        <SSOButton onClick={handleClickLoginAsAdmin}>{formatMessage({ id: "login_as_admin" })}</SSOButton>
+        <SSOButton onClick={handleClickLoginAsUser}>{formatMessage({ id: "login_as_user" })}</SSOButton>
       </div>
     </div>
   );

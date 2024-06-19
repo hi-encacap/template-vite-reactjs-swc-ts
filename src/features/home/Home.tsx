@@ -31,7 +31,7 @@ const Home = () => {
           {intl.formatMessage({ id: "app.toast" })}
         </button>
         <div>-</div>
-        <Link to="/about">About</Link>
+        <Link to="/auth">Auth</Link>
       </div>
     </div>
   );

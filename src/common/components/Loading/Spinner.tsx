@@ -5,9 +5,9 @@ interface LoadingSpinnerProps extends SVGProps<SVGSVGElement> {
   circleProps?: SVGProps<SVGCircleElement>;
 }
 
-const UMLoadingSpinner = ({ className, circleProps, ...props }: LoadingSpinnerProps) => {
+const LoadingSpinner = ({ className, circleProps, ...props }: LoadingSpinnerProps) => {
   return (
-    <svg className={twMerge("h-8 w-8 stroke-teal-500", className, "spinner")} viewBox="0 0 50 50" {...props}>
+    <svg className={twMerge("h-8 w-8 stroke-primary", className, "spinner")} viewBox="0 0 50 50" {...props}>
       <circle
         className="path"
         cx="25"
@@ -22,6 +22,4 @@ const UMLoadingSpinner = ({ className, circleProps, ...props }: LoadingSpinnerPr
   );
 };
 
-const LoadingSpinner = memo(UMLoadingSpinner);
-
-export default LoadingSpinner;
+export default memo(LoadingSpinner);
